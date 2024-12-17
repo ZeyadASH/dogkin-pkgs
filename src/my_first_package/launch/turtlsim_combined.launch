@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Publishes the voxel grid to rviz for display -->
+  <node pkg="turtlesim" type="turtlesim_node" name="llll" output="log">
+    <remap from="/turtle1/cmd_vel" to="my_robot/cmd_vel"/>
+  </node>
+
+
+
+  <!-- Run the costmap node -->
+  <node name="keyboard_control" pkg="turtlesim" type="turtle_teleop_key" >
+    <!--rosparam file="$(find costmap_2d)/launch/example_params.yaml" command="load" ns="costmap" /-->
+  </node>
+
+</launch>

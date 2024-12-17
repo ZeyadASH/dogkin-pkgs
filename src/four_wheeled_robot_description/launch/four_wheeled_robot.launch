@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Load the URDF into the ROS Parameter Server -->
+    <!--param name="robot_description" command="$(find xacro)/xacro.py $(find four_wheeled_robot_description)/urdf/four_wheeled_robot.urdf.xacro" /-->
+    
+    <!-- Launch the URDF in Rviz -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="/use_gui" value="true"/>
+    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    
+    <!-- Launch the URDF in Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find four_wheeled_robot_description)/worlds/four_wheeled_robot.world"/>
+        <arg name="gui" value="true"/>
+    </include>
+
+    <!-- Launch the URDF in Gazebo with the Gazebo GUI, the Gazebo GUI paused, the Gazebo GUI stepping, the Gazebo GUI auto-continue, the Gazebo GUI auto-reset, the Gazebo GUI auto-pause, the Gazebo GUI auto-center, the Gazebo GUI auto-zoom, the Gazebo GUI auto-rotate, the Gazebo GUI auto-save, the Gazebo GUI auto-load, the Gazebo GUI auto-quit, the Gazebo GUI auto-kill, and the Gazebo GUI auto-destroy -->
+    <!--include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find four_wheeled_robot_description)/worlds/four_wheeled_robot.world"/>
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="true"/>
+        <arg name="gui_step" value="true"/>
+        <arg name="auto-continue" value="true"/>
+        <arg name="auto-reset" value="true"/>
+        <arg name="auto-pause" value="true"/>
+        <arg name="auto-center" value="true"/>
+        <arg name="auto-zoom" value="true"/>
+        <arg name="auto-rotate" value="true"/>
+        <arg name="auto-save" value="true"/>
+        <arg name="auto-load" value="true"/>
+        <arg name="auto-quit" value="true"/>
+        <arg name="auto-kill" value="true"/>
+        <arg name="auto-destroy" value="true"/>
+    </include-->
+
+</launch>

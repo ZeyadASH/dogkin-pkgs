@@ -1,0 +1,202 @@
+<sdf version='1.7'>
+  <model name='caster_robot'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0 0 0.04 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.00354167</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00770833</iyy>
+          <iyz>0</iyz>
+          <izz>0.0108333</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.04 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.2 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_visual_visual'>
+        <pose>0 0 0.04 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.2 0.05</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='base_to_caster_wheel' type='revolute'>
+      <pose relative_to='base_footprint'>-0.12 0 0.025 0 -0 0</pose>
+      <parent>base_footprint</parent>
+      <child>caster_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='caster_wheel'>
+      <pose relative_to='base_to_caster_wheel'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.00018</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00018</iyy>
+          <iyz>0</iyz>
+          <izz>0.00018</izz>
+        </inertia>
+      </inertial>
+      <collision name='caster_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='caster_wheel_visual_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='base_to_left_wheel' type='revolute'>
+      <pose relative_to='base_footprint'>0.12 -0.1077 0.025 1.5708 -0 0</pose>
+      <parent>base_footprint</parent>
+      <child>rear_left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_wheel'>
+      <pose relative_to='base_to_left_wheel'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000121875</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000121875</iyy>
+          <iyz>0</iyz>
+          <izz>0.000225</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.015</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_left_wheel_fixed_joint_lump__left_wheel_visual_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.015</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='base_to_right_wheel' type='revolute'>
+      <pose relative_to='base_footprint'>0.12 0.1077 0.025 1.5708 -0 0</pose>
+      <parent>base_footprint</parent>
+      <child>rear_right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_wheel'>
+      <pose relative_to='base_to_right_wheel'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000121875</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000121875</iyy>
+          <iyz>0</iyz>
+          <izz>0.000225</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.015</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_right_wheel_fixed_joint_lump__right_wheel_visual_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.015</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
+      <updateRate>50</updateRate>
+      <leftJoint>base_to_left_wheel</leftJoint>
+      <rightJoint>base_to_right_wheel</rightJoint>
+      <wheelSeparation>0.2</wheelSeparation>
+      <wheelDiameter>0.06</wheelDiameter>
+      <wheelAcceleration>1.0</wheelAcceleration>
+      <wheelTorque>20</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <odometrySource>1</odometrySource>
+      <publishWheelTF>1</publishWheelTF>
+      <publishOdom>1</publishOdom>
+      <publishWheelJointState>1</publishWheelJointState>
+      <legacyMode>0</legacyMode>
+      <rosDebugLevel>info</rosDebugLevel>
+    </plugin>
+    <frame name='base_joint' attached_to='base_footprint'>
+      <pose>0 0 0.04 0 -0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='base_joint'/>
+  </model>
+</sdf>

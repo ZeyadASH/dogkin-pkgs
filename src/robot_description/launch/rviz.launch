@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+<param name="robot_description" command="$(find xacro)/xacro $(find robot_description)/urdf/caster.urdf.xacro"/>
+
+<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" /> <!-- Publish fixed joints -->
+<!-- <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />   Publish non-fixed(dynamic) joints -->  
+<node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" /> 
+
+<arg name="rviz_config" default="$(find robot_description)/config/caster.rviz"/>
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config)"/>
+
+</launch>
